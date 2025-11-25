@@ -1,0 +1,53 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "vite  --mode production",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/colors": "^8.0.0",
+    "@ant-design/icons": "^6.1.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.5",
+    "@mui/x-charts": "^8.19.0",
+    "@tailwindcss/vite": "^4.1.17",
+    "framer-motion": "^12.23.24",
+    "lodash-es": "^4.17.21",
+    "prop-types": "^15.8.1",
+    "react": "^19.2.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^19.2.0",
+    "react-number-format": "^5.4.4",
+    "react-router-dom": "^7.9.6",
+    "simplebar-react": "^3.3.2",
+    "swr": "^2.3.6",
+    "tailwindcss": "^4.1.17",
+    "web-vitals": "^5.1.0",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "serve": "^14.2.5",
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.2.5"
+  }
+}
