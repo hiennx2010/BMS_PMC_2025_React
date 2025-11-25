@@ -1,0 +1,15 @@
+[submodule "src/app-module"]
+	path = src/app-module
+	url = http://10.100.20.66/itkbs/nestjs-app-module
+[submodule "src/common-module"]
+	path = src/common-module
+	url = http://10.100.20.66/itkbs/nestjs-common-module
+[submodule "src/open-api-module"]
+	path = src/open-api-module
+	url = http://10.100.20.66/itkbs/nestjs-open-api-module
+[submodule "src/logger-module"]
+	path = src/logger-module
+	url = http://10.100.20.66/itkbs/nestjs-logger-module
+[submodule "auto-deployment"]
+	path = auto-deployment
+	url = http://10.100.20.66/itkbs/auto-deployment

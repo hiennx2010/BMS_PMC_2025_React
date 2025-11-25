@@ -1,0 +1,7 @@
+.git
+auto-deployment
+logs
+src
+test
+
+Dockerfile

@@ -1,0 +1,12 @@
+{
+  "name": "project-nodejs",
+  "version": "1.0.0",
+  "scripts": {
+    "start:be": "cd Project_Be && npm run start:dev",
+    "start:fe": "cd Project_Fe && npm run dev -- --open",
+    "start": "concurrently --raw --names \"BE,FE\" --prefix-colors \"blue,green\" \"npm run start:be\" \"npm run start:fe\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
