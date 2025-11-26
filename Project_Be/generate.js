@@ -54,10 +54,7 @@ function genEntity(name) {
   }
   let __content = fs.readFileSync(__templatePath)?.toString();
   __content = __content.replaceAll(/@@schema@@/g, __name);
-  __content = __content.replaceAll(
-    /@@tableName@@/g,
-    `tbl_${_.snakeCase(name)}`,
-  );
+  __content = __content.replaceAll(/@@tableName@@/g, `${_.snakeCase(name)}`);
   __content = __content.replaceAll(/@@hasRecycleBin@@/g, __hasRecycleBin);
   console.log(__content);
   fs.writeFileSync(__filePath, __content, { encoding: 'utf8', flag: 'w' });
