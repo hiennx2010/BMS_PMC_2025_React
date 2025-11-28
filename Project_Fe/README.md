@@ -1,18 +1,61 @@
-# React + Vite
+# Base by Development Department KBSEC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Source code for start new project React create by [Vite](https://vitejs.dev/)
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use the npm or yarn to install.
 
-## React Compiler
+```bash
+npm install 
+```
+```bash
+yarn install 
+```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Usage
+Run project
+```bash
+npm run start 
+```
+```bash
+yarn start 
+```
 
-Note: This will impact Vite dev & build performances.
+Build
+```bash
+npm run build
+```
+```bash
+yarn build
+```
+## Features
+Developer experience first:
 
-## Expanding the ESLint configuration
+⚡ State manager with Redux Toolkit
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔍 Multiple language with React i18next
+
+🧪 Multiple theme with Tailwind tw-colors
+
+🗺️ Slide with Swiper
+
+🔥 Type checking TypeScript
+
+💎 Integrate with Tailwind CSS
+
+✅ Strict Mode for TypeScript and React 18
+
+📏 Linter with ESLint
+
+💖 Code Formatter with Prettier
+
+🦊 Husky for Git Hooks
+
+🚫 Lint-staged for running linters on Git staged files
+
+🚓 Lint git commit with Commitlint
+
+💡 Absolute Imports using @ prefix
+
+🗂 VSCode configuration: Debug, Settings, Tasks and extension for PostCSS, ESLint, Prettier, TypeScript

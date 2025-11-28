@@ -1,0 +1,14 @@
+/node_modules
+/public
+/.next
+/.husky
+.env
+.en
+/.idea
+/.vscode
+*.yml
+*.xml
+package.json
+*.lock
+*.md
+.next-env.d.ts
