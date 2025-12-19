@@ -1,0 +1,114 @@
+{
+    "title": "Cài đặt ưu tiên",
+    "copyPreferences": "Sao chép cài đặt",
+    "copyPreferencesSuccessTitle": "Sao chép thành công",
+    "copyPreferencesSuccess": "Sao chép thành công, vui lòng ghi đè vào trong `src/store/preferences/index.ts` ",
+    "clearAndLogout": "Xóa bộ nhớ đệm & Đăng xuất",
+    "theme": {
+        "title": "Chủ đề",
+        "followSystem": "Theo hệ thống",
+        "light": "Sáng",
+        "dark": "Tối",
+        "colorBlindMode": "Chế độ mù màu",
+        "grayMode": "Chế độ xám",
+        "radius": "Bo góc",
+        "builtin": {
+            "title": "Chủ đề tích hợp",
+            "red": "Hoàng hôn đỏ",
+            "volcano": "Núi lửa",
+            "orange": "Chiều tà",
+            "gold": "Cúc vạn thọ",
+            "yellow": "Bình minh",
+            "lime": "Chanh tươi",
+            "green": "Cực quang xanh",
+            "cyan": "Xanh minh",
+            "blue": "Xanh hừng đông",
+            "geekblue": "Xanh Geek",
+            "purple": "Tím đậm",
+            "magenta": "Hồng Magenta",
+            "gray": "Xám trung tính",
+            "custom": "Tùy chỉnh"
+        }
+    },
+    "layout": {
+        "title": "Bố cục",
+        "topNavigation": "Điều hướng trên cùng",
+        "topNavigationTip": "Menu nằm ở vị trí trên cùng",
+        "sideNavigation": "Điều hướng bên cạnh",
+        "sideNavigationTip": "Menu nằm ở vị trí bên cạnh",
+        "twoColumnNavigation": "Điều hướng hai cột",
+        "twoColumnNavigationTip": "Menu dọc hai cột nằm ở vị trí bên cạnh",
+        "mixedNavigation": "Điều hướng hỗn hợp",
+        "mixedNavigationTip": "Điều hướng cấp một ở trên cùng, điều hướng cấp hai ở bên cạnh"
+    },
+    "sidebar": {
+        "title": "Thanh bên",
+        "width": "Chiều rộng",
+        "enable": "Hiển thị thanh bên",
+        "collapsedWidth": "Chiều rộng menu khi thu gọn",
+        "collapsed": "Thu gọn menu",
+        "collapsedShowTitle": "Hiển thị tên menu khi thu gọn",
+        "firstColumnWidthInTwoColumnNavigation": "Chiều rộng cột đầu tiên của điều hướng hai cột",
+        "sidebarTheme": "Chủ đề thanh bên",
+        "accordion": "Menu dạng xếp chồng",
+        "autoActivateChild": "Tự động kích hoạt menu con",
+        "autoActivateChildTip": "Khi nhấp vào menu cấp cao nhất, tự động kích hoạt menu con đầu tiên hoặc menu con đã kích hoạt lần trước",
+        "expandOnHover": "Mở rộng khi di chuột",
+        "expandOnHoverTip": "Khi di chuột qua vùng thu gọn, nếu `Bật` sẽ mở rộng menu con hiện tại, nếu `Tắt` sẽ mở rộng toàn bộ thanh bên"
+    },
+    "tabbar": {
+        "title": "Thanh thẻ",
+        "enable": "Sử dụng thanh thẻ",
+        "icon": "Hiển thị biểu tượng thanh thẻ",
+        "showMore": "Hiển thị nút xem thêm",
+        "showMaximize": "Hiển thị nút phóng to",
+        "persist": "Duy trì thẻ trang",
+        "draggable": "Kích hoạt kéo thả sắp xếp",
+        "styleType": {
+            "title": "Phong cách thẻ trang",
+            "chrome": "Chrome",
+            "card": "Thẻ",
+            "plain": "Phẳng",
+            "brisk": "Năng động"
+        },
+        "contextMenu": {
+            "refresh": "Tải lại",
+            "close": "Đóng",
+            "pin": "Ghim",
+            "unpin": "Bỏ ghim",
+            "closeLeft": "Đóng các thẻ bên trái",
+            "closeRight": "Đóng các thẻ bên phải",
+            "closeOthers": "Đóng các thẻ khác",
+            "closeAll": "Đóng tất cả thẻ",
+            "openInNewWindow": "Mở trong cửa sổ mới",
+            "maximize": "Phóng to",
+            "restoreMaximize": "Khôi phục"
+        }
+    },
+    "animation": {
+        "title": "Hoạt ảnh",
+        "loading": "Loading khi chuyển trang",
+        "transition": "Hiệu ứng chuyển trang",
+        "progress": "Thanh tiến trình chuyển trang"
+    },
+    "general": {
+        "title": "Chung",
+        "language": "Ngôn ngữ",
+        "dynamicTitle": "Tiêu đề động",
+        "watermark": "Hình mờ",
+        "watermarkTip": "Hình mờ được ví như quảng cáo rác trên website, không khuyến khích sử dụng",
+        "watermarkContent": "Nội dung hình mờ",
+        "enableCheckUpdate": "Định kỳ kiểm tra cập nhật",
+        "enableBackTopButton": "Hiển thị nút về đầu trang"
+    },
+    "footer": {
+        "title": "Chân trang",
+        "showFooter": "Hiển thị chân trang",
+        "fixedFooter": "Cố định chân trang",
+        "companyName": "Tên công ty",
+        "companyWebsite": "Trang web công ty",
+        "copyrightDate": "Năm bản quyền",
+        "ICPNumber": "Số giấy phép ICP",
+        "ICPLink": "Liên kết giấy phép ICP"
+    }
+}

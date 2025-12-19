@@ -28,19 +28,38 @@ export function getEnUsLang() {
 	return result;
 }
 
-export function organizeLanguageFiles(files: LanguageFileMap) {
-	const result: LanguageModule<LanguageFileMap> = {};
-
-	for (const key in files) {
-		const data = files[key];
-		const fileArr = key?.split("/");
-		const fileName = fileArr[fileArr?.length - 1];
-		if (!fileName)
-			continue;
-		const name = fileName.split(".json")[0];
-		if (name)
-			result[name] = data;
-	}
-
+export function getViVnLang() {
+	const langFiles = import.meta.glob<LanguageFileMap>("./vi-VN/**/*.json", {
+		import: "default",
+		eager: true,
+	});
+	const result = organizeLanguageFiles(langFiles);
 	return result;
+}
+
+export function organizeLanguageFiles(files: LanguageFileMap) {
+  const result: LanguageModule<LanguageFileMap> = {};
+
+  for (const path in files) {
+    const content = files[path];
+
+    // ./vi-VN/common/button.json → ["common", "button"]
+    const match = path.match(/\/(vi-VN|en-US|zh-CN)\/(.*)\.json$/);
+    if (!match) continue;
+
+    const keyPath = match[2].split("/"); // ["common", "button"]
+
+    let current = result;
+    for (let i = 0; i < keyPath.length; i++) {
+      const key = keyPath[i];
+      if (i === keyPath.length - 1) {
+        current[key] = content;
+      } else {
+        current[key] = current[key] || {};
+        current = current[key];
+      }
+    }
+  }
+
+  return result;
 }

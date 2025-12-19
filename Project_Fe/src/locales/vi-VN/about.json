@@ -1,0 +1,13 @@
+{
+    "aboutProject": "Về dự án",
+    "descriptions": "react-antd-admin là một giải pháp quản trị trung hậu đài dựa trên React Hooks, Vite và TypeScript. Nó được thiết kế để giúp bạn nhanh chóng xây dựng các dự án trung hậu đài cấp doanh nghiệp. Cho dù là áp dụng công nghệ mới hay các khía cạnh khác, nó đều có thể hỗ trợ đắc lực cho bạn.",
+    "projectMessage": "Thông tin dự án",
+    "version": "Phiên bản",
+    "lastBuildTime": "Thời gian build cuối cùng",
+    "license": "Giấy phép nguồn mở",
+    "previewAddress": "Địa chỉ xem trước (Preview)",
+    "documentAddress": "Địa chỉ tài liệu",
+    "author": "Tác giả",
+    "dependencies": "Phụ thuộc sản xuất (Dependencies)",
+    "devDependencies": "Phụ thuộc phát triển (DevDependencies)"
+}

@@ -1,0 +1,39 @@
+{
+    "accessMode": {
+        "title": "Quyền truy cập từ Backend",
+        "description": "Trang hiện tại chỉ hỗ trợ hiển thị menu thông qua API từ phía Backend"
+    },
+    "adminVisible": {
+        "title": "Admin có thể thấy",
+        "description": "Trang hiện tại chỉ hiển thị đối với tài khoản Admin"
+    },
+    "commonVisible": {
+        "title": "Người dùng thường có thể thấy",
+        "description": "Trang hiện tại chỉ hiển thị đối với tài khoản Common"
+    },
+    "pageControl": {
+        "alertMessage": "Demo quyền truy cập trang Frontend",
+        "alertDescription": "Chuyển đổi giữa các tài khoản khác nhau để quan sát sự thay đổi của menu con trong mục 「Demo quyền hạn」 ở bên trái.",
+        "cardTitle": "Chế độ quyền hạn",
+        "frontendControl": "Kiểm soát quyền Frontend",
+        "backendControl": "Kiểm soát quyền Backend",
+        "switchToFrontend": "Chuyển sang chế độ quyền Frontend",
+        "switchToBackend": "Chuyển sang chế độ quyền Backend",
+        "switchAdmin": "Chuyển sang người dùng Admin",
+        "switchCommon": "Chuyển sang người dùng Common",
+        "currentPermissionMode": "Chế độ quyền hiện tại:",
+        "accountSwitching": "Chuyển đổi tài khoản",
+        "warningMessage": "Không cho phép thay đổi chế độ định tuyến khi enableFrontendAceess và enableBackendAceess có giá trị giống nhau."
+    },
+    "buttonControl": {
+        "alertMessage": "Demo quyền truy cập nút Frontend",
+        "alertDescription": "Chuyển đổi các tài khoản khác nhau để quan sát sự thay đổi của các nút bấm.",
+        "currentRole": "Vai trò hiện tại",
+        "switchAdmin": "Chuyển sang người dùng Admin",
+        "switchCommon": "Chuyển sang người dùng Common",
+        "componentControlPermissionCodes": "Kiểm soát dạng Component - Mã quyền hạn",
+        "componentControlRoles": "Kiểm soát dạng Component - Vai trò",
+        "functionControlPermissionCodes": "Kiểm soát dạng Hàm - Mã quyền hạn",
+        "functionControlRoles": "Kiểm soát dạng Hàm - Vai trò"
+    }
+}

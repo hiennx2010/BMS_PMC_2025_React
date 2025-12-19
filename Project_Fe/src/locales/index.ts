@@ -2,18 +2,20 @@ import type { InitOptions } from "i18next";
 
 import enUS from "antd/locale/en_US";
 import zhCN from "antd/locale/zh_CN";
+import viVN from "antd/locale/vi_VN";
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import { getEnUsLang, getZhCnLang } from "./helper";
+import { getEnUsLang, getViVnLang, getZhCnLang } from "./helper";
 
 export * from "./t";
 
-export type LanguageType = "zh-CN" | "en-US";
+export type LanguageType = "zh-CN" | "en-US"| "vi-VN";
 
 export const ANT_DESIGN_LOCALE = {
 	"zh-CN": zhCN,
 	"en-US": enUS,
+	"vi-VN": viVN,
 };
 
 export const i18nResources = {
@@ -23,10 +25,13 @@ export const i18nResources = {
 	"en-US": {
 		translation: getEnUsLang(),
 	},
+	"vi-VN": {
+		translation: getViVnLang(),
+	},
 };
 
 export const i18nInitOptions: InitOptions = {
-	lng: "en-US",              // 👈 mặc định tiếng Anh
+	lng: "vi-VN",              // 👈 mặc định tiếng Anh
   	fallbackLng: "en-US",
 	resources: i18nResources,
 	saveMissing: import.meta.env.DEV,

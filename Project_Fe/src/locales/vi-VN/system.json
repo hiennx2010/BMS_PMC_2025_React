@@ -1,0 +1,42 @@
+{
+    "role": {
+        "name": "Tên vai trò",
+        "id": "Mã vai trò",
+        "addRole": "Thêm vai trò",
+        "editRole": "Chỉnh sửa vai trò",
+        "assignMenu": "Phân quyền menu"
+    },
+    "user": {
+        "name": "Tên người dùng",
+        "id": "Mã người dùng",
+        "addUser": "Thêm người dùng",
+        "editUser": "Chỉnh sửa người dùng"
+    },
+    "menu": {
+        "name": "Tên menu",
+        "routePath": "Đường dẫn định tuyến",
+        "addMenu": "Thêm menu",
+        "editMenu": "Chỉnh sửa menu",
+        "menuType": "Loại menu",
+        "menuTypeDesc": "Loại menu: 0 là Menu, 1 là Iframe, 2 là Liên kết ngoài, 3 là Nút bấm",
+        "menu": "Menu",
+        "iframe": "Iframe",
+        "externalLink": "Liên kết ngoài",
+        "button": "Nút bấm",
+        "menuOrder": "Thứ tự menu",
+        "menuIcon": "Biểu tượng menu",
+        "componentUrl": "Đường dẫn thành phần",
+        "keepAlive": "Lưu bộ nhớ đệm trang",
+        "hideInMenu": "Ẩn trong menu",
+        "currentActiveMenu": "Đường dẫn kích hoạt",
+        "iframeLink": "Liên kết Iframe",
+        "externalLinkUrl": "Địa chỉ liên kết ngoài",
+        "parentMenu": "Menu cấp trên"
+    },
+    "dept": {
+        "name": "Tên phòng ban",
+        "id": "Mã phòng ban",
+        "addDept": "Thêm phòng ban",
+        "editDept": "Chỉnh sửa phòng ban"
+    }
+}
