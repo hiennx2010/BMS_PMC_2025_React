@@ -26,7 +26,8 @@ export const i18nResources = {
 };
 
 export const i18nInitOptions: InitOptions = {
-	lng: "zh-CN",
+	lng: "en-US",              // 👈 mặc định tiếng Anh
+  	fallbackLng: "en-US",
 	resources: i18nResources,
 	saveMissing: import.meta.env.DEV,
 	missingKeyHandler: async (languages, namespace, translationKey) => {
