@@ -82,9 +82,9 @@ package "Layer 3" as l3 {
     Đăng nhập bằng tk Google
     end note
 
-    class KBSVOTPModule #green
+    class OTPModule #green
     note bottom
-    Xác thực API bằng OTP của KBSV
+    Xác thực API bằng OTP của 
     end note
 
     class S3Module #green
@@ -153,8 +153,8 @@ CommonModule <|-- GoogleModule
 ' FacebookModule
 CommonModule <|-- FacebookModule
 
-'KBSVOTPModule
-CommonModule <|-- KBSVOTPModule
+'OTPModule
+CommonModule <|-- OTPModule
 
 ' S3Module
 AppModule <|-- S3Module

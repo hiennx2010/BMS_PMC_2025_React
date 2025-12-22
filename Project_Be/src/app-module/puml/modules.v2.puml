@@ -12,7 +12,7 @@
 ***[#LightGreen] "SSO" as sso
 ***[#Orange] "Google SSO" as gg_sso
 ***[#Orange] "Facebook SSO" as fb_sso
-***[#LightGreen] "KBSV OTP" as kbsv_otp
+***[#LightGreen] "OTP" as otp
 ***[#LightGreen] "S3" as s3
 ***[#LightGreen] "Script" as script
 **[#LightGreen] "Admin" as admin
