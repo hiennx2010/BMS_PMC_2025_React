@@ -8,6 +8,7 @@ import {
   Put,
   Req,
   Res,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { BaseEntityService } from 'src/common-module/service/base-entity/base-entity.service';
@@ -57,6 +58,7 @@ export abstract class BaseEntityController {
     'fieldsToSign',
     'sign',
   ];
+
   /**
    * Ràng buộc khi update object
    */
@@ -88,44 +90,42 @@ export abstract class BaseEntityController {
 
   constructor(public entityService: BaseEntityService) {}
 
+  // ====================== LIST ======================
   @Get()
   async index(
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
   ): Promise<any> {
     try {
-      let items: any[] = await this.entityService.list();
-      let __items = items.map((item: any) => {
-        return this.entityService.modifyData(item, this.__getExcludeKeys);
-      });
-      return __items;
+      const items = await this.entityService.list();
+      return items.map((item: any) =>
+        this.entityService.modifyData(item, this.__getExcludeKeys),
+      );
     } catch (e) {
-      let generalResponse = GeneralResponse.getInstance(
+      res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+      return GeneralResponse.getInstance(
         GeneralResponseErrorDetail.INTERNAL_SERVER_ERROR,
         { message: e.message },
       );
-      res.status(HttpStatus.INTERNAL_SERVER_ERROR);
-      return generalResponse;
     }
   }
 
-  @Get('/:id(\\d+)')
+  // ====================== GET BY ID ======================
+  @Get(':id')
   async get(
-    @Param('id') id: number,
+    @Param('id', ParseIntPipe) id: number,
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
   ): Promise<any> {
     try {
-      let item: any = await this.entityService.get(id);
-      let __item: any;
-      if (item) {
-        __item = this.entityService.modifyData(item, this.__getExcludeKeys);
-        return __item;
+      const item = await this.entityService.get(id);
+      if (!item) {
+        res.status(HttpStatus.NOT_FOUND);
+        return GeneralResponse.getInstance(
+          GeneralResponseErrorDetail.NOT_FOUND_ERROR,
+        );
       }
-      res.status(HttpStatus.NOT_FOUND);
-      return GeneralResponse.getInstance(
-        GeneralResponseErrorDetail.NOT_FOUND_ERROR,
-      );
+      return this.entityService.modifyData(item, this.__getExcludeKeys);
     } catch (e) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR);
       return GeneralResponse.getInstance(
@@ -135,44 +135,44 @@ export abstract class BaseEntityController {
     }
   }
 
-  /**
-   * Call trước khi thực hiện save data
-   * @param item
-   */
+  // ====================== HOOKS ======================
   async onBeforeSave(item: any): Promise<GeneralResponse> {
-    let __gr: GeneralResponse = Validator.validate(
-      this.__createDtoContraints,
-      item,
-    );
-    return Promise.resolve(__gr);
+    return Validator.validate(this.__createDtoContraints, item);
   }
 
-  /**
-   * Call sau khi api save xử lý xong
-   */
   onAfterSave(item?: any) {}
 
+  async onBeforeUpdate(item: any): Promise<GeneralResponse> {
+    return Validator.validate(this.__updateDtoContraints, item);
+  }
+
+  onAfterUpdate() {}
+
+  onAfterDelete() {}
+
+  // ====================== CREATE ======================
   @Post()
   async save(
     @Body() body: any,
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
-  ): Promise<GeneralResponse> {
+  ): Promise<any> {
     body = this.entityService.modifyData(body, this.__createExcludeFields);
-    let __userDetail: UserDetail = req['userDetail'];
-    if (__userDetail) {
-      body['createdBy'] = __userDetail?.username;
+
+    const user: UserDetail = req['userDetail'];
+    if (user) {
+      body.createdBy = user.username;
     }
 
-    let __gr = await this.onBeforeSave(body);
-    if (__gr.code !== ResponseCode.SUCCESS) {
+    const gr = await this.onBeforeSave(body);
+    if (gr.code !== ResponseCode.SUCCESS) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR);
-      return __gr;
+      return gr;
     }
 
     try {
-      let item = await this.entityService.save(body);
-      if (item == null) {
+      const item = await this.entityService.save(body);
+      if (!item) {
         res.status(HttpStatus.NOT_FOUND);
         return GeneralResponse.getInstance(
           GeneralResponseErrorDetail.NOT_FOUND_ERROR,
@@ -189,43 +189,29 @@ export abstract class BaseEntityController {
     }
   }
 
-  /**
-   * Call trước khi thực hiện update data
-   * @param item
-   */
-  async onBeforeUpdate(item: any): Promise<GeneralResponse> {
-    let __gr: GeneralResponse = Validator.validate(
-      this.__updateDtoContraints,
-      item,
-    );
-    return Promise.resolve(__gr);
-  }
-  /**
-   * Call sau khi api update xử lý xong
-   */
-  onAfterUpdate() {}
-
-  @Put('/:id(\\d+)')
+  // ====================== UPDATE ======================
+  @Put(':id')
   async update(
-    @Param('id') id: number,
+    @Param('id', ParseIntPipe) id: number,
     @Body() body: any,
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
   ): Promise<any> {
     body = this.entityService.modifyData(body, this.__updateExcludeFields);
-    let __userDetail: UserDetail = req['userDetail'];
-    if (__userDetail) {
-      body['updatedBy'] = __userDetail?.username;
+
+    const user: UserDetail = req['userDetail'];
+    if (user) {
+      body.updatedBy = user.username;
     }
 
-    let __gr = await this.onBeforeUpdate(body);
-    if (__gr.code !== ResponseCode.SUCCESS) {
+    const gr = await this.onBeforeUpdate(body);
+    if (gr.code !== ResponseCode.SUCCESS) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR);
-      return __gr;
+      return gr;
     }
 
     try {
-      let item: any = await this.entityService.update(id, body);
+      const item = await this.entityService.update(id, body);
       if (!item) {
         res.status(HttpStatus.NOT_FOUND);
         return GeneralResponse.getInstance(
@@ -243,19 +229,15 @@ export abstract class BaseEntityController {
     }
   }
 
-  /**
-   * Call sau khi api delete xử lý xong
-   */
-  onAfterDelete() {}
-
-  @Delete('/:id(\\d+)')
+  // ====================== DELETE ======================
+  @Delete(':id')
   async delete(
-    @Param('id') id: number,
+    @Param('id', ParseIntPipe) id: number,
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
   ): Promise<any> {
     try {
-      let item: any = await this.entityService.delete(id);
+      const item = await this.entityService.delete(id);
       if (!item) {
         res.status(HttpStatus.NOT_FOUND);
         return GeneralResponse.getInstance(
@@ -273,7 +255,8 @@ export abstract class BaseEntityController {
     }
   }
 
-  @Get(['/load-data-table', '/loadDataTable'])
+  // ====================== DATATABLE ======================
+  @Get(['load-data-table', 'loadDataTable'])
   async loadDataTable(
     @Req() request: Request,
     @Res({ passthrough: true }) res: Response,
@@ -281,27 +264,26 @@ export abstract class BaseEntityController {
     if (request.query.filters) {
       request.query.filters = JSON.parse(request.query.filters.toString());
     }
-    let dataTableFilter = plainToClass(DataTableFilter, request.query, {
+
+    const dataTableFilter = plainToClass(DataTableFilter, request.query, {
       enableImplicitConversion: true,
     });
 
-    let loadDataTableMethod: Promise<[any[], number]>;
-    if (request.query['mt'] === 'qb') {
-      loadDataTableMethod =
-        this.entityService.loadDataTableUsingQueryBuilder(dataTableFilter);
-    } else {
-      loadDataTableMethod = this.entityService.loadDataTable(dataTableFilter);
-    }
+    const loadMethod =
+      request.query['mt'] === 'qb'
+        ? this.entityService.loadDataTableUsingQueryBuilder(dataTableFilter)
+        : this.entityService.loadDataTable(dataTableFilter);
+
     try {
-      let data: any = await loadDataTableMethod;
-      let dataTableResponse = new DataTableResponse();
-      dataTableResponse.first = dataTableFilter.first;
-      dataTableResponse.rows = dataTableFilter.rows;
-      dataTableResponse.items = data[0].map((item: any) => {
-        return this.entityService.modifyData(item, this.__getExcludeKeys);
-      });
-      dataTableResponse.totalRows = data[1];
-      return dataTableResponse;
+      const [items, total] = await loadMethod;
+      const response = new DataTableResponse();
+      response.first = dataTableFilter.first;
+      response.rows = dataTableFilter.rows;
+      response.totalRows = total;
+      response.items = items.map((item: any) =>
+        this.entityService.modifyData(item, this.__getExcludeKeys),
+      );
+      return response;
     } catch (e) {
       res.status(HttpStatus.INTERNAL_SERVER_ERROR);
       return GeneralResponse.getInstance(
@@ -311,13 +293,12 @@ export abstract class BaseEntityController {
     }
   }
 
-  @Get('/:id(\\d+)/check-sign')
+  // ====================== CHECK SIGN ======================
+  @Get(':id/check-sign')
   async checkSign(
-    @Param('id') id: number,
-    @Req() req: Request,
-    @Res({ passthrough: true }) res: Response,
+    @Param('id', ParseIntPipe) id: number,
   ) {
-    let item: any = await this.entityService.get(id);
-    return item?.isValidSign();
+    const item = (await this.entityService.get(id)) as any;
+    return item?.isValidSign?.();
   }
 }

@@ -6,6 +6,6 @@ import { CommonModule } from 'src/common-module/common.module';
   imports: [TypeOrmModule.forFeature([]), CommonModule, MainModule],
   controllers: [],
   providers: [],
-  exports: [],
+  exports: [TypeOrmModule],
 })
 export class MainModule {}

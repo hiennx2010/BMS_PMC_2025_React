@@ -1,4 +1,4 @@
-import * as moment from "moment";
+import moment from 'moment';
 import { ConvertHandler, IConvertUtils } from "./i-convert.utils";
 
 export class DateTimeConvert implements IConvertUtils {
